@@ -1,3 +1,5 @@
+import css from "./CountDisplay.module.css";
+
 interface CountDisplayProps {
   count: number;
 }
