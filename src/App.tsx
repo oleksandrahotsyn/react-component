@@ -3,6 +3,7 @@ import CatInfo from "./Components/CatInfo/CatInfo";
 import cats from "./cats.json";
 import { useState } from "react";
 import CountDisplay from "./Components/CountDisplay/CountDisplay";
+import TagManager from "./Components/TagManager/TagManager";
 
 function App() {
   const [count, setCount] = useState<number>(0);
@@ -12,6 +13,7 @@ function App() {
   };
   return (
     <>
+      <TagManager />
       <ClickButton onUpdate={handleClick} />
       <ClickButton onUpdate={handleClick} />
       <CountDisplay count={count} />
