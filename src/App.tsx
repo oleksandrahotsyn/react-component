@@ -1,18 +1,20 @@
-import { useState } from "react";
+import ClickButton from "./Components/ClickButton/ClickButton";
 import CatInfo from "./Components/CatInfo/CatInfo";
 import cats from "./cats.json";
+import { useState } from "react";
+import CountDisplay from "./Components/CountDisplay/CountDisplay";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState<number>(0);
 
   const handleClick = () => {
     setCount(count + 1);
   };
   return (
-    <div>
-      <div> Total {count}</div>
-      <button onClick={handleClick}> click</button>
-      <button onClick={handleClick}> click</button>
+    <>
+      <ClickButton onUpdate={handleClick} />
+      <ClickButton onUpdate={handleClick} />
+      <CountDisplay count={count} />
       {cats.map((cat) => (
         <CatInfo
           key={cat.id}
@@ -22,7 +24,7 @@ function App() {
           aviable={cat.aviable}
         />
       ))}
-    </div>
+    </>
   );
 }
 
