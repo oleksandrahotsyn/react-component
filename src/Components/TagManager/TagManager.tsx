@@ -16,6 +16,10 @@ function TagManager() {
     setSearch(event.target.value);
   };
 
+  const filterTags = tags.filter((tag) =>
+    tag.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div>
       <input
@@ -24,7 +28,7 @@ function TagManager() {
         onChange={handleSearchChange}
       />
       <div className={css.container}>
-        {tags.map((tag) => (
+        {filterTags.map((tag) => (
           <span key={tag} className={css.tag}>
             {tag}{" "}
             <button
